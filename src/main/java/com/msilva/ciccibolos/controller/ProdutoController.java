@@ -1,4 +1,4 @@
-package com.msilva.ciccibolos.controller;
+package com.msilva.cicciBolos.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.msilva.ciccibolos.model.produto.Produto;
-import com.msilva.ciccibolos.model.produto.ProdutoService;
-import com.msilva.ciccibolos.model.tipo.TipoService;
+import com.msilva.cicciBolos.model.produto.Produto;
+import com.msilva.cicciBolos.model.produto.ProdutoService;
+import com.msilva.cicciBolos.model.tipo.TipoService;
 
 @Controller
 public class ProdutoController {

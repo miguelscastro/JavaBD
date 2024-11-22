@@ -1,4 +1,4 @@
-package com.msilva.ciccibolos.model;
+package com.msilva.cicciBolos.model;
 
 public class Login {
     private int idUsuario;

@@ -1,4 +1,4 @@
-package com.msilva.ciccibolos;
+package com.msilva.cicciBolos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CiccibolosApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CiccibolosApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(CiccibolosApplication.class, args);
+    }
 }

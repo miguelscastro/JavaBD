@@ -1,4 +1,4 @@
-package com.msilva.ciccibolos.controller;
+package com.msilva.cicciBolos.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.msilva.ciccibolos.model.tipo.Tipo;
-import com.msilva.ciccibolos.model.tipo.TipoService;
+import com.msilva.cicciBolos.model.tipo.Tipo;
+import com.msilva.cicciBolos.model.tipo.TipoService;
 
 @Controller
 public class TipoController {

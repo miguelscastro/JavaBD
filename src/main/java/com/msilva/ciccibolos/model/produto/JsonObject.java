@@ -1,4 +1,4 @@
-package com.msilva.ciccibolos.model.produto;
+package com.msilva.cicciBolos.model.produto;
 
 import java.util.Map;
 
