@@ -9,7 +9,7 @@ COPY src ./src
 
 RUN chmod +x mvnw
 
-RUN ./mvnw -X package
+RUN ./mvnw -e -X package
 
 RUN ls -l ./target
 
