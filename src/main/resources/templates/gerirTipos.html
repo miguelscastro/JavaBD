@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Página inicial</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/20918d4472.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+
+<body>
+    <select id="dropdown" onchange="trocarPag()">
+        <option value="/gerirTipos" selected>Cadastro de Tipo</option>
+        <option value="/gerirProdutos">Cadastro de Produto</option>
+    </select>
+    <div th:if="${error}"
+        style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: bold; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form id="create-update" th:action="@{${edicao} ? '/gerirTipos/' + ${tipo.idTipoProduto} : '/gerirTipos'}"
+        method="post" th:object="${tipo}">
+
+        Novo tipo: <input type="text" th:field="*{nomeTipoProduto}"><br>
+
+        <input type="submit" th:value="${edicao} ? 'Atualizar' : 'Adicionar'" name="adicionarTipo">
+
+    </form>
+
+    <h2>Tipos adicionados</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th class="center"><i class="fa-solid fa-pen-to-square"></i></th>
+            <th class="center"><i class="fa-solid fa-trash"></i></th>
+        </tr>
+        <tr th:each="tipo : ${listaTipos}">
+            <td th:text="${tipo.cd_tipoproduto}">#</td>
+            <td th:text="${tipo.nm_tipoproduto}">Nome</td>
+            <td class="center"><a th:href="@{'/gerirTipos/' + ${tipo.cd_tipoproduto}}">Atualizar</a></td>
+            <td class="center">
+                <form id="delete" th:action="@{'/deletarTipo/' + ${tipo.cd_tipoproduto}}" method="post">
+                    <input type="submit" value="Apagar">
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+/* Definições de variáveis no :root */
+:root {
+    --background-color: #f4f4f4;
+    --primary-color: #a78859;
+    --primary-hover-color: #806c4d;
+    --error-color: #e74c3c;
+    --error-hover-color: #c0392b;
+    --font-family: Arial, sans-serif;
+    --text-color: #333;
+    --form-bg-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para o corpo */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    padding: 20px;
+    color: var(--text-color);
+}
+
+/* Estilo para os links de navegação */
+a {
+    display: inline-block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--primary-hover-color);
+}
+
+/* Estilo do formulário */
+form#create-update {
+    background-color: var(--form-bg-color);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+form#create-update input[type="text"],
+form#create-update select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form#create-update input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+form#create-update input[type="submit"]:hover {
+    background-color: var(--primary-hover-color);
+}
+
+/* Estilo para mensagens de erro */
+div[th\:if] {
+    color: var(--error-color);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--form-bg-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #ecf0f1;
+}
+
+/* Estilo para o botão de exclusão dentro da tabela */
+table form#delete {
+    display: inline;
+}
+
+table form#delete input[type="submit"] {
+    color: var(--error-color);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+table form#delete input[type="submit"]:hover {
+    color: var(--error-hover-color);
+}
+
+/* Estilo para o select */
+#dropdown {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon fill="%23a78859" points="0,0 10,0 5,5"/></svg>');
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do dropdown */
+#dropdown {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 1%;
+}
+
+#dropdown:hover {
+    background-color: #e3e3e3;
+}
+
+#dropdown:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
