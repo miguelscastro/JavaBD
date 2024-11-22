@@ -32,4 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
+### imgs ###
+src/main/resources/static/images/
+
 

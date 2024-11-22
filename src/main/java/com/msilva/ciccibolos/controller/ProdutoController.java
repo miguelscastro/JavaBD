@@ -24,7 +24,7 @@ public class ProdutoController {
     // Verificação de identidade do gestor do sistema (TO-DO)
     @GetMapping("/")
     public String principal() {
-        return "teste";
+        return "index";
     }
 
     // Adição de novo produto na tabela Produto
