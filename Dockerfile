@@ -7,9 +7,9 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY src ./src
 
-RUN chmod +x mvnw
+RUN chmod 777 mvnw
 
-RUN ./mvnw -e -X package
+RUN ./mvnw package
 
 RUN ls -l ./target
 
