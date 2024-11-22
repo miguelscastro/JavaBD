@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### BD ###
-src/main/java/resources/application.yaml
+application.yaml
