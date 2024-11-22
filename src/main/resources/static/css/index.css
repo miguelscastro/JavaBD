@@ -1,3 +1,4 @@
+/* default 1920x1080 */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;1,400;1,700&display=swap');
 
 * {
@@ -9,6 +10,8 @@
     --link-color: #000;
     --background-color: #fffcf7;
     --carousel-background: #f8f4ec;
+    --header-color: #e0d6c6;
+    --footer-color: #f5f2ed;
 }
 
 body {
@@ -32,8 +35,12 @@ main {
 #footer-config {
     display: flex;
     justify-content: center;
-    background-color: #e0d6c6;
+    background-color: var(--header-color);
     max-width: 100%;
+}
+
+#footer-config {
+    background-color: var(--footer-color);
 }
 
 .logo-config {
@@ -75,43 +82,24 @@ main {
 }
 
 /* Configurações do carrossel */
-.carrossel {
+#banner {
     position: relative;
     width: 100%;
     max-width: 100%;
-    max-height: 100%;
+    height: 15%;
     padding: 0%;
     margin: 0.2% 0;
     background-color: var(--carousel-background);
-    border-bottom: 3px solid var(--background-color);
+    border-bottom: 10px solid var(--background-color);
     border-top: 3px solid var(--background-color);
     overflow: hidden;
 
 }
 
-.carrossel-item {
+#banner .carrossel-item {
     flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
-
-}
-
-.carrossel .slick-slide {
-    transition: transform 0.5s, opacity 0.5s;
-    margin: 0;
-    padding: 0.5%;
-}
-
-.carrossel .slick-center img {
-    transform: scale(1);
-    z-index: 2;
-}
-
-.carrossel .slick-slide:not(.slick-center) img {
-    opacity: 0.4;
-    /* transform: translateY(50px); */
-    margin: 3% 0 0 5%;
-    width: 90%;
-    height: auto;
-    z-index: 1;
+    width: 1550px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 0;
 }
