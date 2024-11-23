@@ -34,7 +34,8 @@ public class ProdutoController {
     // Adição de novo produto na tabela Produto
     @GetMapping("/gerirProdutos")
     public String produto(Model model) {
-
+        String rootPath = System.getProperty("user.dir");
+        System.out.println("Caminho raiz do projeto no Render: " + rootPath);
         model.addAttribute("produto", new Produto());
 
         // carrega a lista de produtos no modulo
