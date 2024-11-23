@@ -33,11 +33,13 @@ public class ProdutoDAO {
     }
 
     public void inserir(Produto prod) {
-        String sql = "INSERT INTO Produto(nm_Produto,ds_Produto,cd_TipoProduto) VALUES (?,?,?);";
-        Object[] parametros = new Object[3];
+
+        String sql = "INSERT INTO Produto(nm_Produto,ds_Produto,cd_TipoProduto, ds_caminhoImagem) VALUES (?,?,?,?);";
+        Object[] parametros = new Object[4];
         parametros[0] = prod.getNomeProduto();
         parametros[1] = prod.getDescricaoProduto();
         parametros[2] = prod.getTipoProduto();
+        parametros[3] = prod.getCaminhoImagem();
         jdbc.update(sql, parametros);
     }
 
@@ -49,8 +51,9 @@ public class ProdutoDAO {
     }
 
     public void atualizarProduto(int idProduto, Produto prod) {
-        String sql = "UPDATE Produto SET nm_Produto = ?, ds_Produto = ?, cd_TipoProduto = ? WHERE cd_Produto = ?;";
-        jdbc.update(sql, prod.getNomeProduto(), prod.getDescricaoProduto(), prod.getTipoProduto(), idProduto);
+        String sql = "UPDATE Produto SET nm_Produto = ?, ds_Produto = ?, cd_TipoProduto = ?, ds_caminhoImagem = ? WHERE cd_Produto = ?;";
+        jdbc.update(sql, prod.getNomeProduto(), prod.getDescricaoProduto(), prod.getTipoProduto(),
+                prod.getCaminhoImagem(), idProduto);
     }
 
     public Produto obterProduto(int idProduto) {
