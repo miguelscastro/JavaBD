@@ -65,8 +65,7 @@ public class ProdutoController {
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
             // define o caminho onde a imagem será salva
-            String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
-            ;
+            String caminhoDiretorio = "/app/src/main/resources/static/images/";
             String nomeArquivo = imagemProduto.getOriginalFilename();
             File destino = new File(caminhoDiretorio + nomeArquivo);
 
