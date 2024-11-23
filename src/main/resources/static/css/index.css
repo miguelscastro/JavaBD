@@ -9,7 +9,7 @@
 :root {
     --link-color: #000;
     --background-color: #fffcf7;
-    --carousel-background: #f8f4ec;
+    --carousel-background: #292110;
     --header-color: #e0d6c6;
     --footer-color: #f5f2ed;
 }
@@ -98,7 +98,7 @@ main {
 
 #banner .carrossel-item {
     flex: 0 0 100%;
-    width: 1550px;
+    width: 90%;
     height: 450px;
     margin: 0 auto;
     padding: 0;
