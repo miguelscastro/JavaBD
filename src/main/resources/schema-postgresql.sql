@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS produto(
     nm_Produto VARCHAR(50),
     ds_Produto VARCHAR(300),
     cd_TipoProduto INT,
+    ds_caminhoImagem VARCHAR(255),
     CONSTRAINT FK_Tipo FOREIGN KEY (cd_TipoProduto) REFERENCES tipo(cd_TipoProduto)
 );
 

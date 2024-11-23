@@ -1,10 +1,31 @@
 package com.msilva.cicciBolos.model.produto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Produto {
     private int idProduto;
     private String nomeProduto;
     private String descricaoProduto;
     private int tipoProduto;
+    private MultipartFile imagemProduto;
+    private String caminhoImagem;
+
+    // Imagem
+    public MultipartFile getImagemProduto() {
+        return imagemProduto;
+    }
+
+    public void setImagemProduto(MultipartFile imagemProduto) {
+        this.imagemProduto = imagemProduto;
+    }
+
+    public String getCaminhoImagem() {
+        return caminhoImagem;
+    }
+
+    public void setCaminhoImagem(String caminhoImagem) {
+        this.caminhoImagem = caminhoImagem;
+    }
 
     public Produto() {
 
@@ -19,10 +40,12 @@ public class Produto {
     }
 
     // Inserção de novo produto
-    public Produto(String nomeProduto, String descricaoProduto, int tipoProduto) {
+    public Produto(String nomeProduto, String descricaoProduto, int tipoProduto, MultipartFile imagemProduto) {
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
         this.tipoProduto = tipoProduto;
+        this.imagemProduto = imagemProduto;
+
     }
 
     public int getIdProduto() {
