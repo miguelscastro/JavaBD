@@ -24,3 +24,12 @@ spring:
             schema-locations: classpath:/schema-postgresql.sql
             mode: always
             platform: postgres
+    thymeleaf:
+            prefix: file:${resources_path}/templates/
+            suffix: .html
+            mode: HTML
+            encoding: UTF-8
+            cache: false
+    web:
+        resources:
+            static-locations: file:${resources_path}/static/  
