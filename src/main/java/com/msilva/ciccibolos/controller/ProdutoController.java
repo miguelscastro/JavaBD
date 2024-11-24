@@ -75,7 +75,7 @@ public class ProdutoController {
         // ajuda a validar qual tipo de action deve ser passado ao formulario já que
         // CREATE e UPDATE compartilham mesmo formuiario
         model.addAttribute("edicao", false);
-        return "/gerirProdutos";
+        return "gerirProdutos";
     }
 
     @PostMapping("/gerirProdutos")
@@ -145,7 +145,7 @@ public class ProdutoController {
         // ajuda a validar qual tipo de value deve ser passado ao formulario já que
         // CREATE e UPDATE compartilham mesmo formuiario
         model.addAttribute("edicao", true);
-        return "/gerirProdutos";
+        return "gerirProdutos";
     }
 
     @PostMapping("/gerirProdutos/{idProduto}")
