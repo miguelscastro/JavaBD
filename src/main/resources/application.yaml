@@ -9,7 +9,7 @@ spring:
             max-request-size: 10MB
     datasource:
         url: jdbc:postgresql://dpg-cstjvslumphs73fpt9h0-a.oregon-postgres.render.com:5432/ciccibolos
-        username: postgres
+        username: ciccibolos_user
         password: EkMJMs31ESHj0kUL0cQDB2KQJg4FY9il
         driver-class-name: org.postgresql.Driver
         initialize: true
@@ -24,4 +24,5 @@ spring:
             schema-locations: classpath:/schema-postgresql.sql
             mode: always
             platform: postgres
+
 
