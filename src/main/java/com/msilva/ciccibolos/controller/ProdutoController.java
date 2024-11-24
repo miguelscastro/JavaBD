@@ -40,6 +40,7 @@ public class ProdutoController {
     @GetMapping("/{produto}")
     public String carregarPaginaProduto(Model model, @PathVariable String produto) {
         ProdutoService ps = context.getBean(ProdutoService.class);
+        model.addAttribute("caminhoDir", System.getProperty("user.dir") + "/src/main/resources/static/images/");
         List<Map<String, Object>> listaProdutos = ps.obterTodosProdutos();
         model.addAttribute("listaProdutos", ps.obterTodosProdutos());
         switch (produto) {
