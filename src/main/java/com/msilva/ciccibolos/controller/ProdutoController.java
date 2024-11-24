@@ -89,8 +89,18 @@ public class ProdutoController {
             if (imagemProduto.getSize() > 10 * 1024 * 1024) { // 10MB
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
-            // define o caminho onde a imagem será salva
-            String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
+            // define o caminho onde a imagem será salva usando variavel de ambiente
+            String caminhoDiretorio = System.getenv("IMAGES_BASE_PATH");
+            if (caminhoDiretorio == null || caminhoDiretorio.isEmpty()) {
+                caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
+            }
+
+            // verifica se o caminho existe e o cria caso não exista
+            File diretorio = new File(caminhoDiretorio);
+            if (!diretorio.exists()) {
+                diretorio.mkdirs();
+            }
+
             String nomeArquivo = imagemProduto.getOriginalFilename();
             String nomeArquivoSemExtensao = nomeArquivo.substring(0, nomeArquivo.trim().lastIndexOf("."));
             String hashNomeArquivo = ps.md5hash(nomeArquivoSemExtensao) + ".png";
@@ -99,6 +109,7 @@ public class ProdutoController {
             try {
                 imagemProduto.transferTo(destino);
                 prod.setCaminhoImagem(hashNomeArquivo);
+                System.out.println("Imagem salva com sucesso");
 
             } catch (IOException e) {
                 model.addAttribute("error", "Erro ao salvar a imagem.");
