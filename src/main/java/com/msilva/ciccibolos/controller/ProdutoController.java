@@ -108,7 +108,7 @@ public class ProdutoController {
             if (imagemProduto.getSize() > 10 * 1024 * 1024) { // 10MB
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
-            // define o caminho onde a imagem será aramzenada
+            // define o caminho onde a imagem será armazenada
             String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
 
             // verifica se o caminho existe e o cria caso não exista
