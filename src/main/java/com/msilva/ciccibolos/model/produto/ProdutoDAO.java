@@ -46,7 +46,7 @@ public class ProdutoDAO {
     // {id: 1, nomeProduto: Bolo de Chocolate, tipoProduto: Bolo,
     // descriçãoProduto: Bolo de chocolate com morango}
     public List<Map<String, Object>> obterTodosProdutos() {
-        String sql = "SELECT p.cd_produto, p.nm_produto, p.ds_produto, t.nm_tipoproduto, p.ds_caminhoimagem FROM Produto p JOIN Tipo t ON p.cd_tipoproduto = t.cd_tipoproduto;";
+        String sql = "SELECT p.cd_produto, p.nm_produto, p.ds_produto, t.nm_tipoproduto, p.ds_caminhoimagem, p.cd_tipoproduto FROM Produto p JOIN Tipo t ON p.cd_tipoproduto = t.cd_tipoproduto;";
         return jdbc.queryForList(sql);
     }
 

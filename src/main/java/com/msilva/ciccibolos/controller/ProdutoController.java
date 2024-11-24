@@ -25,10 +25,35 @@ public class ProdutoController {
     @Autowired
     private ApplicationContext context;
 
-    // Verificação de identidade do gestor do sistema (TO-DO)
+    // carrega o model da pagina inicial
     @GetMapping("/")
-    public String principal() {
+    public String principal(Model model) {
+        ProdutoService ps = context.getBean(ProdutoService.class);
+
+        // carrega a lista dos produtos no modelo
+        List<Map<String, Object>> listaProdutos = ps.obterTodosProdutos();
+        model.addAttribute("listaProdutos", ps.obterTodosProdutos());
         return "index";
+    }
+
+    // carrega o model das paginas de produtos
+    @GetMapping("/{produto}")
+    public String carregarPaginaProduto(Model model, @PathVariable String produto) {
+        ProdutoService ps = context.getBean(ProdutoService.class);
+        List<Map<String, Object>> listaProdutos = ps.obterTodosProdutos();
+        model.addAttribute("listaProdutos", ps.obterTodosProdutos());
+        switch (produto) {
+            case "bolos":
+                return "bolos";
+            case "bolosDePote":
+                return "bolosDePote";
+            case "cupcakes":
+                return "cupcakes";
+            case "doces":
+                return "doces";
+            default:
+                return "index";
+        }
     }
 
     // Adição de novo produto na tabela Produto

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CakeDesigner - Inicio</title>
+    <title>CakeDesigner - Bolos de Pote</title>
     <link rel="stylesheet" th:href="@{/css/index-produtos.css}">
 
     <!-- ícones -->
@@ -26,9 +26,9 @@
             <div id="caminhosNav">
                 <a th:href="@{gerirProdutos}">Adm</a><span>|</span>
                 <select id="dropdown" onchange="trocarPag()">
-                    <option value="/" selected>Produtos</option>
+                    <option value="/">Produtos</option>
                     <option value="/bolos">Bolos</option>
-                    <option value="/bolosDePote">Bolos de Pote</option>
+                    <option value="/bolosDePote" selected>Bolos de Pote</option>
                     <option value="/cupcakes">Cupcakes</option>
                     <option value="/doces">Doces</option>
                 </select>
@@ -43,17 +43,11 @@
     </header>
 
     <div id="banner">
-        <div><img th:src="@{/images/banner/bolos.png}" alt="" class="carrossel-item">
-        </div>
-        <div><img th:src="@{/images/banner/cupcakes.png}" alt="" class="carrossel-item">
-        </div>
         <div><img th:src="@{/images/banner/bolosDePote.png}" alt="" class="carrossel-item">
-        </div>
-        <div><img th:src="@{/images/banner/doces.png}" alt="" class="carrossel-item">
         </div>
     </div>
     <main>
-        <h1>Conheça nossos quitutes</h1>
+        <h1>Conheça nossos sabores</h1>
         <div id="produtos-container">
             <div id="produto-card" th:if="${produto.nm_tipoproduto == 'Bolo de pote'}"
                 th:each="produto : ${listaProdutos}">
