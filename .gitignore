@@ -35,4 +35,5 @@ build/
 ### imgs ###
 src/main/resources/static/images/
 
-
+### .yaml ###
+src/main/resources/application.yaml
