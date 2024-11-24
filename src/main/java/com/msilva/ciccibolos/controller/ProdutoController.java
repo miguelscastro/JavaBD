@@ -58,6 +58,35 @@ public class ProdutoController {
         }
     }
 
+    // carrega o model com as informações de um produto específico
+    @GetMapping("/produto/{id}")
+    public String carregarPaginaProduto(Model model, @PathVariable int id) {
+        ProdutoService ps = context.getBean(ProdutoService.class);
+        Produto prod = ps.obterProduto(id);
+        model.addAttribute("produto", prod);
+
+        return "produto";
+    }
+
+    @GetMapping("/listarImagens")
+    public String listarImagens() {
+        String caminhoDiretorio = "/app/src/main/resources/static/images/";
+        File diretorio = new File(caminhoDiretorio);
+        if (diretorio.exists() && diretorio.isDirectory()) {
+            String[] listaArquivos = diretorio.list();
+            if (listaArquivos != null) {
+                for (String arquivo : listaArquivos) {
+                    System.out.println("Imagem encontrada: " + arquivo);
+                }
+            } else {
+                System.out.println("Nenhuma imagem encontrada no diretório.");
+            }
+        } else {
+            System.out.println("Diretório não encontrado: " + caminhoDiretorio);
+        }
+        return "redirect:/gerirProdutos";
+    }
+
     // Adição de novo produto na tabela Produto
     @GetMapping("/gerirProdutos")
     public String produto(Model model) {
