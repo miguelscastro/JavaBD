@@ -33,7 +33,7 @@ build/
 .vscode/
 
 ### imgs ###
-src/main/resources/static/images/
+# src/main/resources/static/images/
 
 ### .yaml ###
 src/main/resources/application.yaml

@@ -184,7 +184,19 @@ public class ProdutoController {
     @PostMapping("/deletarProduto/{idProduto}")
     public String deletarProduto(@PathVariable int idProduto) {
         ProdutoService ps = context.getBean(ProdutoService.class);
+
+        // Pega o produto e verifica se ele o a imagem estão vazios ou nulos
+        Produto prod = ps.obterProduto(idProduto);
+        if (prod != null && prod.getCaminhoImagem() != null) {
+            String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
+            File arquivoImagem = new File(caminhoDiretorio + prod.getCaminhoImagem());
+
+            arquivoImagem.delete();
+        }
+
+        // Excluir o produto do banco
         ps.deletarProduto(idProduto);
+
         return "redirect:/gerirProdutos";
     }
 

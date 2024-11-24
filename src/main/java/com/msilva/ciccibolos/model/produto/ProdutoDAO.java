@@ -62,6 +62,7 @@ public class ProdutoDAO {
     }
 
     public void deletarProduto(int idProduto) {
+
         String sql = "DELETE FROM Produto WHERE cd_Produto = ?";
         jdbc.update(sql, idProduto);
     }
