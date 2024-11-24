@@ -89,12 +89,8 @@ public class ProdutoController {
             if (imagemProduto.getSize() > 10 * 1024 * 1024) { // 10MB
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
-            // define o caminho onde a imagem será salva usando variavel de ambiente
-            String caminhoDiretorio = System.getenv("IMAGES_BASE_PATH");
-            if (caminhoDiretorio == null || caminhoDiretorio.isEmpty()) {
-                caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
-            }
-            System.out.println("Caminho absoluto: " + caminhoDiretorio);
+            // define o caminho onde a imagem será
+            String caminhoDiretorio = "/app/src/main/resources/static/images/";
 
             // verifica se o caminho existe e o cria caso não exista
             File diretorio = new File(caminhoDiretorio);
