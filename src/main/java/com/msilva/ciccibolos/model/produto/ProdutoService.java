@@ -3,6 +3,9 @@ package com.msilva.cicciBolos.model.produto;
 import java.util.List;
 import java.util.Map;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +48,30 @@ public class ProdutoService {
 
     public void deletarProduto(int idProduto) {
         pdao.deletarProduto(idProduto);
+    }
+
+    // converte o nome da imagem para hash
+    public String md5hash(String originalString) {
+        try {
+            // Cria uma instância de MessageDigest com o algoritmo MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // Calcula o hash da string original
+            byte[] hashBytes = md.digest(originalString.getBytes());
+
+            // Converte o array de bytes para uma representação hexadecimal
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hashBytes) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1)
+                    hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Algoritmo de hash não encontrado: " + e.getMessage());
+        }
+        return "batata";
     }
 }

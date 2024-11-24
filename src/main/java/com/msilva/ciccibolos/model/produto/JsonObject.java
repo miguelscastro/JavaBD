@@ -16,6 +16,7 @@ public class JsonObject {
                 (Integer) registro.get("cd_produto"),
                 (String) registro.get("nm_produto"),
                 (String) registro.get("ds_produto"),
-                (Integer) registro.get("cd_tipoproduto"));
+                (Integer) registro.get("cd_tipoproduto"),
+                (String) registro.get("ds_caminhoimagem"));
     }
 }

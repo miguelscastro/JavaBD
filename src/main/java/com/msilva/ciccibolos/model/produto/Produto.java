@@ -1,24 +1,13 @@
 package com.msilva.cicciBolos.model.produto;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class Produto {
     private int idProduto;
     private String nomeProduto;
     private String descricaoProduto;
     private int tipoProduto;
-    private MultipartFile imagemProduto;
     private String caminhoImagem;
 
     // Imagem
-    public MultipartFile getImagemProduto() {
-        return imagemProduto;
-    }
-
-    public void setImagemProduto(MultipartFile imagemProduto) {
-        this.imagemProduto = imagemProduto;
-    }
-
     public String getCaminhoImagem() {
         return caminhoImagem;
     }
@@ -32,19 +21,20 @@ public class Produto {
     }
 
     // Manipulação de já cadastrado
-    public Produto(int idProduto, String nomeProduto, String descricaoProduto, int tipoProduto) {
+    public Produto(int idProduto, String nomeProduto, String descricaoProduto, int tipoProduto, String caminhoImagem) {
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
         this.tipoProduto = tipoProduto;
+        this.caminhoImagem = caminhoImagem;
     }
 
     // Inserção de novo produto
-    public Produto(String nomeProduto, String descricaoProduto, int tipoProduto, MultipartFile imagemProduto) {
+    public Produto(String nomeProduto, String descricaoProduto, int tipoProduto, String caminhoImagem) {
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
         this.tipoProduto = tipoProduto;
-        this.imagemProduto = imagemProduto;
+        this.caminhoImagem = caminhoImagem;
 
     }
 

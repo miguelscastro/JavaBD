@@ -28,14 +28,13 @@ public class ProdutoController {
     // Verificação de identidade do gestor do sistema (TO-DO)
     @GetMapping("/")
     public String principal() {
-        return "gerirTipos";
+        return "index";
     }
 
     // Adição de novo produto na tabela Produto
     @GetMapping("/gerirProdutos")
     public String produto(Model model) {
-        String rootPath = System.getProperty("user.dir");
-        System.out.println("Caminho raiz do projeto no Render: " + rootPath);
+
         model.addAttribute("produto", new Produto());
 
         // carrega a lista de produtos no modulo
@@ -57,7 +56,7 @@ public class ProdutoController {
     @PostMapping("/gerirProdutos")
     public String adicionarProduto(Model model, @ModelAttribute Produto prod,
             @RequestParam("imagemProduto") MultipartFile imagemProduto) {
-
+        ProdutoService ps = context.getBean(ProdutoService.class);
         // verifica se foi inserida uma imagem
         if (!imagemProduto.isEmpty()) {
             // Verifica se a imagem é maior que o limite configurado
@@ -65,14 +64,16 @@ public class ProdutoController {
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
             // define o caminho onde a imagem será salva
-            String caminhoDiretorio = "/app/src/main/resources/static/images/";
+            String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
             String nomeArquivo = imagemProduto.getOriginalFilename();
-            File destino = new File(caminhoDiretorio + nomeArquivo);
-
+            String nomeArquivoSemExtensao = nomeArquivo.substring(0, nomeArquivo.trim().lastIndexOf("."));
+            String hashNomeArquivo = ps.md5hash(nomeArquivoSemExtensao) + ".png";
+            File destino = new File(caminhoDiretorio + hashNomeArquivo);
             // tenta inserir a imagem na posição passada no caminho
             try {
                 imagemProduto.transferTo(destino);
-                prod.setCaminhoImagem(nomeArquivo);
+                prod.setCaminhoImagem(hashNomeArquivo);
+
             } catch (IOException e) {
                 model.addAttribute("error", "Erro ao salvar a imagem.");
                 return "/gerirProdutos";
@@ -80,7 +81,6 @@ public class ProdutoController {
         }
         // tenta adicionar ao banco o novo Produto inserido
         try {
-            ProdutoService ps = context.getBean(ProdutoService.class);
             ps.inserir(prod);
         } catch (IllegalArgumentException e) {
 
@@ -89,7 +89,6 @@ public class ProdutoController {
             model.addAttribute("error", e.getMessage());
 
             // recarrega a lista dos produtos no modelo
-            ProdutoService ps = context.getBean(ProdutoService.class);
             model.addAttribute("listaProdutos", ps.obterTodosProdutos());
 
             // recarrega o dropdown no modelo

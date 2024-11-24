@@ -1,3 +1,5 @@
+-- CREATE DATABASE IF NOT EXISTS ciccibolos;
+
 CREATE TABLE IF NOT EXISTS tipo(
     cd_TipoProduto serial primary key,
     nm_TipoProduto VARCHAR(50)

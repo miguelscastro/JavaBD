@@ -34,7 +34,7 @@ public class ProdutoDAO {
 
     public void inserir(Produto prod) {
 
-        String sql = "INSERT INTO Produto(nm_Produto,ds_Produto,cd_TipoProduto, ds_caminhoImagem) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO produto(nm_Produto,ds_Produto,cd_TipoProduto,ds_caminhoImagem) VALUES (?,?,?,?)";
         Object[] parametros = new Object[4];
         parametros[0] = prod.getNomeProduto();
         parametros[1] = prod.getDescricaoProduto();
@@ -46,7 +46,7 @@ public class ProdutoDAO {
     // {id: 1, nomeProduto: Bolo de Chocolate, tipoProduto: Bolo,
     // descriçãoProduto: Bolo de chocolate com morango}
     public List<Map<String, Object>> obterTodosProdutos() {
-        String sql = "SELECT p.cd_produto, p.nm_produto, p.ds_produto, t.nm_tipoproduto FROM Produto p JOIN Tipo t ON p.cd_tipoproduto = t.cd_tipoproduto;";
+        String sql = "SELECT p.cd_produto, p.nm_produto, p.ds_produto, t.nm_tipoproduto, p.ds_caminhoimagem FROM Produto p JOIN Tipo t ON p.cd_tipoproduto = t.cd_tipoproduto;";
         return jdbc.queryForList(sql);
     }
 
