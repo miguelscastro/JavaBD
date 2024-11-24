@@ -109,6 +109,7 @@ public class ProdutoController {
                 imagemProduto.transferTo(destino);
                 prod.setCaminhoImagem(hashNomeArquivo);
                 System.out.println("Imagem salva com sucesso");
+                System.out.println(destino);
 
             } catch (IOException e) {
                 model.addAttribute("error", "Erro ao salvar a imagem.");
