@@ -1,4 +1,3 @@
--- CREATE DATABASE IF NOT EXISTS ciccibolos;
 
 CREATE TABLE IF NOT EXISTS tipo(
     cd_TipoProduto serial primary key,
@@ -19,6 +18,3 @@ CREATE TABLE IF NOT EXISTS usuarios(
     nm_Usuario VARCHAR(50),
     senha_Hash TEXT
 );
-
-DROP TABLE produto;
-DROP TABLE tipo;
