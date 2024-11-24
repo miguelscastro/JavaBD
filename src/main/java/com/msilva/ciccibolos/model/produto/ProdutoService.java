@@ -20,9 +20,9 @@ public class ProdutoService {
             throw new IllegalArgumentException("O produto precisa de um nome.");
         }
         // verifica se o nome passado para o objeto Tipo já não está registrado
-        if (pdao.verificarProduto(prod.getNomeProduto())) {
-            throw new IllegalArgumentException("Já existe um produto com esse nome.");
-        }
+        // if (pdao.verificarProduto(prod.getNomeProduto())) {
+        // throw new IllegalArgumentException("Já existe um produto com esse nome.");
+        // }
         // verifica se a descrição não está vazia
         if (prod.getDescricaoProduto() == null || prod.getDescricaoProduto().trim().isEmpty()) {
             throw new IllegalArgumentException("A descrição não pode estar vazia.");
