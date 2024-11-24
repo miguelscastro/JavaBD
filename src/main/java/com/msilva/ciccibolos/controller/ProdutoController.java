@@ -94,6 +94,7 @@ public class ProdutoController {
             if (caminhoDiretorio == null || caminhoDiretorio.isEmpty()) {
                 caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
             }
+            System.out.println("Caminho absoluto: " + caminhoDiretorio);
 
             // verifica se o caminho existe e o cria caso não exista
             File diretorio = new File(caminhoDiretorio);
