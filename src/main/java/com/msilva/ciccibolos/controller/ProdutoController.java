@@ -124,8 +124,32 @@ public class ProdutoController {
     }
 
     @PostMapping("/gerirProdutos/{idProduto}")
-    public String editarProduto(@PathVariable int idProduto, @ModelAttribute Produto prod) {
+    public String editarProduto(@PathVariable int idProduto, @ModelAttribute Produto prod, MultipartFile imagemProduto,
+            Model model) {
         ProdutoService ps = context.getBean(ProdutoService.class);
+
+        if (!imagemProduto.isEmpty()) {
+            // Verifica se a imagem é maior que o limite configurado
+            if (imagemProduto.getSize() > 10 * 1024 * 1024) { // 10MB
+                model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
+            }
+            // define o caminho onde a imagem será salva
+            String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
+            String nomeArquivo = imagemProduto.getOriginalFilename();
+            String nomeArquivoSemExtensao = nomeArquivo.substring(0, nomeArquivo.trim().lastIndexOf("."));
+            String hashNomeArquivo = ps.md5hash(nomeArquivoSemExtensao) + ".png";
+            File destino = new File(caminhoDiretorio + hashNomeArquivo);
+            // tenta inserir a imagem na posição passada no caminho
+            try {
+                imagemProduto.transferTo(destino);
+                prod.setCaminhoImagem(hashNomeArquivo);
+
+            } catch (IOException e) {
+                model.addAttribute("error", "Erro ao salvar a imagem.");
+                return "/gerirProdutos";
+            }
+        }
+
         ps.atualizarProduto(idProduto, prod);
 
         return "redirect:/gerirProdutos";
