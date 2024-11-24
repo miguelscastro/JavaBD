@@ -40,8 +40,7 @@ public class ProdutoController {
     @GetMapping("/{produto}")
     public String carregarPaginaProduto(Model model, @PathVariable String produto) {
         ProdutoService ps = context.getBean(ProdutoService.class);
-        // passa o caminho de armazenamento das imgs
-        model.addAttribute("caminhoDir", "/app/src/main/resources/static/images/");
+
         List<Map<String, Object>> listaProdutos = ps.obterTodosProdutos();
         model.addAttribute("listaProdutos", ps.obterTodosProdutos());
         switch (produto) {
@@ -90,8 +89,7 @@ public class ProdutoController {
     // Adição de novo produto na tabela Produto
     @GetMapping("/gerirProdutos")
     public String produto(Model model) {
-        // passa o caminho de armazenamento das imgs
-        model.addAttribute("caminhoDir", "/app/src/main/resources/static/images/");
+
         model.addAttribute("produto", new Produto());
 
         // carrega a lista de produtos no modulo
@@ -138,9 +136,10 @@ public class ProdutoController {
                 imagemProduto.transferTo(destino);
                 prod.setCaminhoImagem(hashNomeArquivo);
                 System.out.println("Imagem salva com sucesso");
-                System.out.println(destino);
+                System.out.println("Imagem salva com sucesso em: " + destino.getAbsolutePath());
 
             } catch (IOException e) {
+                System.err.println("Erro ao salvar a imagem: " + e.getMessage());
                 model.addAttribute("error", "Erro ao salvar a imagem.");
                 return "/gerirProdutos";
             }
