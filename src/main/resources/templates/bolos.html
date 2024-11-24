@@ -54,7 +54,7 @@
                 <p th:text="'#' + ${produto.cd_produto}"></p>
                 <img th:src="@{'/images/' + ${produto.ds_caminhoImagem}}" alt="imagem do produto" width="100"
                     height="100">
-                <a th:text="${produto.nm_produto}" th:href="@{'/produto/' + ${produto.cd_produto}}"></a>
+                <a th:text="${produto.nm_produto}" th:href="@{'/bolos/' + ${produto.cd_produto}}"></a>
             </div>
         </div>
     </main>

@@ -52,10 +52,26 @@
         <div><img th:src="@{/images/banner/doces.png}" alt="" class="carrossel-item">
         </div>
     </div>
-    <main>
-        <h1>Conheça nossos quitutes</h1>
-        <!-- slider com produtos (TO-DO) -->
-    </main>
+    <h1>Conheça nossos quitutes</h1>
+    <div id="produtos-container">
+        <div id="produto-card">
+            <img th:src="@{/images/banner2/bolo.png}" alt="imagem do produto" width="100" height="100">
+            <a th:href="@{/bolos}">Bolos</a>
+        </div>
+        <div id="produto-card">
+            <img th:src="@{/images/banner2/cupcake.png}" alt="imagem do produto" width="100" height="100">
+            <a th:href="@{/cupcakes}">Cupcakes</a>
+        </div>
+        <div id="produto-card">
+            <img th:src="@{/images/banner2/doce.png}" alt="imagem do produto" width="100" height="100">
+            <a th:href="@{/doces}">Doces</a>
+        </div>
+        <div id="produto-card">
+            <img th:src="@{/images/banner2/bolopote.png}" alt="imagem do produto" width="100" height="100">
+            <a th:href="@{/bolosDePote}">Bolos de Pote</a>
+        </div>
+    </div>
+
     <footer>
         <nav id="footer-config">
             <a class="logo-config" th:href="@{/}"><img th:src="@{/images/footer-img.png}" alt="Logo"></a>

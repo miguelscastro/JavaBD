@@ -57,16 +57,6 @@ public class ProdutoController {
         }
     }
 
-    // carrega o model com as informações de um produto específico
-    @GetMapping("/produto/{id}")
-    public String carregarPaginaProduto(Model model, @PathVariable int id) {
-        ProdutoService ps = context.getBean(ProdutoService.class);
-        Produto prod = ps.obterProduto(id);
-        model.addAttribute("produto", prod);
-
-        return "produto";
-    }
-
     @GetMapping("/listarImagens")
     public String listarImagens() {
         String caminhoDiretorio = "/app/src/main/resources/static/images/";
@@ -119,7 +109,7 @@ public class ProdutoController {
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
             // define o caminho onde a imagem será aramzenada
-            String caminhoDiretorio = "/app/src/main/resources/static/images/";
+            String caminhoDiretorio = System.getProperty("user.dir") + "/src/main/resources/static/images/";
 
             // verifica se o caminho existe e o cria caso não exista
             File diretorio = new File(caminhoDiretorio);
@@ -135,8 +125,6 @@ public class ProdutoController {
             try {
                 imagemProduto.transferTo(destino);
                 prod.setCaminhoImagem(hashNomeArquivo);
-                System.out.println("Imagem salva com sucesso");
-                System.out.println("Imagem salva com sucesso em: " + destino.getAbsolutePath());
 
             } catch (IOException e) {
                 System.err.println("Erro ao salvar a imagem: " + e.getMessage());
@@ -173,9 +161,6 @@ public class ProdutoController {
         Produto prod = ps.obterProduto(idProduto);
         model.addAttribute("idProduto", idProduto);
         model.addAttribute("produto", prod);
-
-        // passa o caminho de armazenamento das imgs
-        model.addAttribute("caminhoDir", "/app/src/main/resources/static/images/");
 
         // recarrega a lista dos produtos no modelo
         model.addAttribute("listaProdutos", ps.obterTodosProdutos());
