@@ -1,7 +1,7 @@
 /* Definições de variáveis no :root */
 :root {
     --background-color: #f4f4f4;
-    --primary-color: #a78859;
+    --primary-color: #978b75c0;
     --primary-hover-color: #806c4d;
     --error-color: #e74c3c;
     --error-hover-color: #c0392b;
@@ -17,6 +17,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Estilos para o link de retorno (Home) */
+#path {
+    display: flex;
+    justify-content: space-between;
+}
+
+#path #home {
+    width: 10%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    text-align: center;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Estilo para o corpo */
 body {

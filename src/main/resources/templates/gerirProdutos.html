@@ -6,17 +6,19 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Página inicial</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/adm.css}">
     <script src="https://kit.fontawesome.com/20918d4472.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/scripts.js}"></script>
 </head>
 
 <body>
-    <select id="dropdown" onchange="trocarPag()">
-        <option value="/gerirTipos">Cadastro de Tipo</option>
-        <option value="/gerirProdutos" selected>Cadastro de Produto</option>
-    </select>
-
+    <div id="path">
+        <select id="dropdown" onchange="trocarPag()">
+            <option value="/gerirTipos">Cadastro de Tipo</option>
+            <option value="/gerirProdutos" selected>Cadastro de Produto</option>
+        </select>
+        <a th:href="@{/}" id="home">Home</a>
+    </div>
     <div th:if="${error}"
         style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: bold; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <p th:text="${error}"></p>
