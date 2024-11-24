@@ -40,7 +40,8 @@ public class ProdutoController {
     @GetMapping("/{produto}")
     public String carregarPaginaProduto(Model model, @PathVariable String produto) {
         ProdutoService ps = context.getBean(ProdutoService.class);
-        model.addAttribute("caminhoDir", System.getProperty("user.dir") + "/src/main/resources/static/images/");
+        // passa o caminho de armazenamento das imgs
+        model.addAttribute("caminhoDir", "/app/src/main/resources/static/images/");
         List<Map<String, Object>> listaProdutos = ps.obterTodosProdutos();
         model.addAttribute("listaProdutos", ps.obterTodosProdutos());
         switch (produto) {
@@ -60,7 +61,8 @@ public class ProdutoController {
     // Adição de novo produto na tabela Produto
     @GetMapping("/gerirProdutos")
     public String produto(Model model) {
-
+        // passa o caminho de armazenamento das imgs
+        model.addAttribute("caminhoDir", "/app/src/main/resources/static/images/");
         model.addAttribute("produto", new Produto());
 
         // carrega a lista de produtos no modulo
@@ -89,7 +91,7 @@ public class ProdutoController {
             if (imagemProduto.getSize() > 10 * 1024 * 1024) { // 10MB
                 model.addAttribute("error", "O tamanho da imagem excede o limite permitido (10MB).");
             }
-            // define o caminho onde a imagem será
+            // define o caminho onde a imagem será aramzenada
             String caminhoDiretorio = "/app/src/main/resources/static/images/";
 
             // verifica se o caminho existe e o cria caso não exista
@@ -142,6 +144,9 @@ public class ProdutoController {
         Produto prod = ps.obterProduto(idProduto);
         model.addAttribute("idProduto", idProduto);
         model.addAttribute("produto", prod);
+
+        // passa o caminho de armazenamento das imgs
+        model.addAttribute("caminhoDir", "/app/src/main/resources/static/images/");
 
         // recarrega a lista dos produtos no modelo
         model.addAttribute("listaProdutos", ps.obterTodosProdutos());
