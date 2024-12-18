@@ -6,4 +6,3 @@
 
 - **Adição Dinâmica de Produtos**: O administrador pode adicionar novos produtos sem depender de mudanças no código.
 - **Alocação Automática**: Os produtos são automaticamente alocados nas seções corretas do site.
-- **Ajuste de Estilos**: Os estilos das seções e produtos são ajustados dinamicamente, garantindo uma apresentação visual consistente.
