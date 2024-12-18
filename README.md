@@ -9,4 +9,5 @@
 
 ## Recursos
 
-Back-end feito em Java usando Maven, SpringBoot e Thymeleaf, com integração a um Banco de Dados local usando PostgresSQL. Front-end feito em HTML, CSS e JavaScript
+- Back-end feito em Java usando Maven, SpringBoot e Thymeleaf, com integração a um Banco de Dados local usando PostgresSQL.
+- Front-end feito em HTML, CSS e JavaScript.
