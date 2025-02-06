@@ -1,13 +1,2 @@
-# CakeDesigner
-
-É um webservice para exibição de produtos com adição dinâmica. Ele permite que o usuário adicione novos produtos de maneira simples, sem a necessidade de realizar alterações no sistema.
-
-## Funcionalidades
-
-- **Adição Dinâmica de Produtos**: O administrador pode adicionar novos produtos sem depender de mudanças no código.
-- **Alocação Automática**: Os produtos são automaticamente alocados nas seções corretas do site.
-
-## Recursos
-
-- Back-end feito em Java usando Maven, SpringBoot e Thymeleaf, com integração a um Banco de Dados local usando PostgresSQL.
-- Front-end feito em HTML, CSS e JavaScript.
+### CakeDesigner
+It is a webservice for product display with dynamic addition, allowing administrators to easily add new products without requiring system modifications. The product addition process is intuitive, and new items are automatically placed in the correct sections of the website, ensuring efficient organization. The back-end is developed in *Java* using *Maven*, *SpringBoot*, and *Thymeleaf*, integrated with a local *PostgreSQL database*. The front-end utilizes *HTML*, *CSS*, and *JavaScript* to provide an interactive and user-friendly interface.
